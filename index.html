@@ -152,52 +152,53 @@
   <h3 class="text-white px-2">Portfolio</h3>
 </div>
 <div class="album pt-4 mt-1" id="photo-list">
- 
+
+</div>
+<div class="album pt-4 mt-1" id="loaders">
+  <div class="shimmer-placeholder" style="height: 18rem;"></div>
+  <div class="shimmer-placeholder" style="height: 15rem;"></div>
+  <div class="shimmer-placeholder"style="height: 10rem;"></div>
+  <div class="shimmer-placeholder"></div>
+  <div class="shimmer-placeholder" style="height: 15rem;"></div>
+  <div class="shimmer-placeholder" style="height: 12rem;"></div>
 
  
 </div>
-<div class="pt-5 text-center">
-  <button class="btn btn-dark btn-lg" id="load-more">Load More</button>
+
+<div class="loader"></div>
+<div class="pt-5 text-center mb-4">
+  <p id="loading-message" class="text-center text-white"></p>
+  <button class="btn  btn-lg text-white" id="load-more" style="background-color: #60B99A;">Load More</button>
 </div>
 
      
     </main>
-    <footer class="container py-5 bg-light">
+    <footer class="container-fluid py-5 bg-light">
       <div class="row">
         <div class="col-12 col-md">
-          <svg xmlns="/assets/favicon/favicon.ico"" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
-          <small class="d-block mb-3 text-muted">Mckaziwe Media House © 2017–2021</small>
+          <img src="/assets/favicon/favicon.ico"></img>
+          <small class="d-block mb-3 text-muted">Mckaziwe Media House © 2014-2023</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Links</h5>
+          <h5>Quick links</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Home</a></li>
-            <li><a class="link-secondary" href="#">About</a></li>
-            <li><a class="link-secondary" href="#">Contact</a></li>
+            <li><a class="link-secondary text-decoration-none" href="#">Home</a></li>
+            <li><a class="link-secondary text-decoration-none" href="#">About</a></li>
+            <li><a class="link-secondary text-decoration-none" href="#">Contact</a></li>
+            <li><a class="link-secondary text-decoration-none" href="#">Company profile</a></li>
+        
           </ul>
         </div>
         <div class="col-6 col-md">
           <h5>Portfolio</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Resource name</a></li>
-            <li><a class="link-secondary" href="#">Resource</a></li>
-            <li><a class="link-secondary" href="#">Another resource</a></li>
-            <li><a class="link-secondary" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Company profile</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="link-secondary" href="#">Team</a></li>
-            <li><a class="link-secondary" href="#">Locations</a></li>
-            <li><a class="link-secondary" href="#">Privacy</a></li>
-            <li><a class="link-secondary" href="#">Terms</a></li>
+            <li><a href="album-view.html?id=gtEownLsYsXsZ46vp01k&title=Creatove Design" class="d-inline-flex mb-1 text-decoration-none link-secondary">Creative Design</a></li>
+            <li><a href="album-view.html?id=lYiSy5gxdtezUyWEIINR&title=Brand and Identity" class="d-inline-flex mb-1 text-decoration-none link-secondary">Brand & Identity</a></li>
+            <li><a href="album-view.html?id=37oPL1BrxtmcgqTGn2En&title=Company Profile" class="d-inline-flex mb-1 text-decoration-none link-secondary">Company Profile</a></li>
+            <li><a href="album-view.html?id=KC7aDvrGS2SibAEFIeEq&title=Booklets" class="d-inline-flex mb-1 text-decoration-none link-secondary">Booklets</a></li>
+            <li><a href="album-view.html?id=8ArLZya77HX1Fluy8s4T&title=Photography" class="d-inline-flex mb-1 text-decoration-none link-secondary">Photography</a></li>
+            <li><a href="album-view.html?id=JM6c2OIFYoBqJdrK6iMu&title=Videography" class="d-inline-flex mb-1 text-decoration-none link-secondary">Videography</a></li>
+            <li><a href="album-view.html?id=fmqUL6kJwBZ7EP7Ku47w&title=Mockups" class="d-inline-flex mb-1 text-decoration-none link-secondary">Mockups</a></li>
           </ul>
         </div>
       </div>
@@ -236,34 +237,12 @@
   
         const db = firebase.firestore();
   
-        // add photo album
-        $("#add-album").on("click", function (event) {
-          event.preventDefault();
-          let albumName = $("#album-name").val();
-          db.collection("mckaziwe-photo-albums").doc(extractUrl()).collection("photos").doc().set({
-            albumName: albumName,
-            numPhotos: 0
-          }).then((message) => {
-            console.log(message);
-            $("#toast-body").html(`${albumName} added successfully 😊`)
-            $("#toast").show();
-            getPhotoAlbums();
-  
-          }).catch((error) => {
-            console.log(error.message)
-          })
-        })
-  
-        // creates a new photo album  to Cloud Firestore.
-        $("#close-toast").on("click", function () {
-          $("#toast").hide();
-        })
-  
+   
         // get  photo albums
         // getPhotoAlbums();
         let field = "date";
 
-        // getPhotos();
+        getPhotos(); // initial load
         function getPhotos() {
           // loading...
           db.collection("mckaziwe-photos").orderBy(field).startAfter(lastVisible).limit(limit).get().then((querySnapshot) => {
@@ -276,9 +255,12 @@
                 </div>
               `);
               currentDate = doc.data().date;
+              $("#loaders").addClass("hidden");
             });
               if (prevDate == currentDate) {
                 $("#load-more").attr("disabled", true);
+                $("#loaders").addClass("hidden");
+                $("#loading-message").html("You have reached the end!!");
                 maxReached = true;
               } else{
                 prevDate = currentDate;
@@ -290,6 +272,7 @@
         }
         $("#load-more").on("click", function() {
           if (!maxReached) {
+            $("#loaders").removeClass("hidden");
             getPhotos();
             startAt += limit;
           }
