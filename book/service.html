@@ -1,259 +1,115 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mckaziwe Media</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
-    <link rel="stylesheet" href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
-    <!-- <link href="assets/sidebars.css" rel="stylesheet"> -->
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mckaziwe Media</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+  <link href="../assets/css/style.css" rel="stylesheet">
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+</head>
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      body{
-        display: flex;
-        flex-direction: row;
-        font-size: 100%;
-      }
-      .side-bar{
-        flex-shrink: 2;
-        background-color: #000202 !important;
-        height: 100vh;
-        
-      }
-      main{
-        flex-shrink: 5;
-        padding: 1rem;
-        width: 100%;
-      }
-      /* For side bar menu */
-      .side-bar-menu li a{
-        --link_color: rgb(0, 125, 107);
-        color: var(--link_color);
-        width: 10rem;
-      }
-      .side-bar-menu li a:hover{
-        --link_color_hover: #87e7d9;
-        background-color: var(--link_color_hover);
-        color: #050f0e;
-      }
-      .quote-container{
-        max-width: 40rem;
-        padding-inline: 4rem;
-      }
-      .quote-container p{
-        font-size: 2rem;
-      }
-      /* Grid */
-      .grid {
-  background: #EEE;
-  max-width: 1200px;
-}
-
-/* clearfix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* ---- grid-item ---- */
-
-.album{
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 1rem; */
-  max-width: 60rem;
-  margin: 0 auto;
-  gap: 1em;
-  display: columns;
-  columns: 3;
-  }
-  .album > *{
-    break-inside: avoid;
-    margin-bottom: 1em;
-
-  }
-.album-item img{
-  border-radius: 0.2rem;
-}
-#collapsible{
-  color: var(--link_color);;
-}
-/* #collapsible:after {
-  font-family: "Font Awesome 6 free";
-  content: "\f095";
-} */
-
-/* Icon when the collapsible content is hidden */
-#collapsible::after {
-  color: rgb(238, 238, 238);
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,127,107,107%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  translate: 2.5rem 0.1rem;
-  transform: rotate(90deg);
-  transform-origin: .5em 50%;
-}
-#collapsible[aria-expanded="true"]::after {
-  transform: rotate(270deg);
-}
-#dashboard-collapse{
-  padding-inline: 1em;
-}
-
-.card{
-  max-width: 40rem;
-}
-.hidden{
-  display: none;
-}
-    </style>
-  </head>
-  <body>
-    <div class="p-3 side-bar bg-dark" style="width: 350px;">
-      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-white text-decoration-none border-bottom">
-        <img class="bi pe-none me-2" width="30" height="24" src="assets/img/images.jpg">
-        <span class="fs-5 fw-semibold">Mckaziwe Media</span>
-      </a>
-      <ul class="list-unstyled ps-0 side-bar-menu">
-        <li class="mb-1 nav-item">
-          <a href="#" class="btn  d-inline-flex align-items-center rounded border-0"  aria-expanded="true">
-            Home
-          </a>
-        </li>
-        <li class="mb-1">
-          <a href="#" id="collapsible" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            Portifolio
-          </a>
-          <div class="collapse" id="dashboard-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Creative Design</a></li>
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Brand & Identity</a></li>
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Company Profile/Booklets</a></li>
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Photography</a></li>
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Videography</a></li>
-              <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Mockups</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="mb-1 nav-item">
-          <a href="#" class="btn  d-inline-flex align-items-center rounded border-0"  aria-expanded="true">
-            About
-          </a>
-        </li>
-        <li class="mb-1 nav-item">
-          <a href="#" class="btn  d-inline-flex align-items-center rounded border-0"  aria-expanded="true">
-            Contact
-          </a>
-        </li>
-      </ul>
-    </div>
-    <main>
-     <form action="" class="card container border-0" >
+<body>
+  <div class="p-3 side-bar bg-dark" style="width: 350px;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-white text-decoration-none border-bottom">
+      <img class="bi pe-none me-2" width="30" height="24" src="assets/img/images.jpg">
+      <span class="fs-5 fw-semibold">Mckaziwe Media</span>
+    </a>
+    <ul class="list-unstyled ps-0 side-bar-menu">
+      <li class="mb-1 nav-item">
+        <a href="#" class="btn  d-inline-flex align-items-center rounded border-0" aria-expanded="true">
+          Home
+        </a>
+      </li>
+      <li class="mb-1">
+        <a href="#" id="collapsible" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+          data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Portifolio
+        </a>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Creative Design</a></li>
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Brand & Identity</a></li>
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Company Profile/Booklets</a></li>
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Photography</a></li>
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Videography</a></li>
+            <li><a href="#" class="link-white d-inline-flex text-decoration-none ">Mockups</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1 nav-item">
+        <a href="#" class="btn  d-inline-flex align-items-center rounded border-0" aria-expanded="true">
+          About
+        </a>
+      </li>
+      <li class="mb-1 nav-item">
+        <a href="#" class="btn  d-inline-flex align-items-center rounded border-0" aria-expanded="true">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+  <main>
+    <form id="appointment-form" method="post" class="card container border-0">
       <h1>Book Appointment</h1>
       <div class="separator bt-1 mb-2"></div>
       <div class="my-3" id="page-1">
-      <h3>What type service do you want?</h3>
+        <h3>What type service do you want?</h3>
 
         <div class="card container py-2 mb-2 bg-light mt-4">
           <div class="form-check">
             <input id="creative-design" name="chooseService" type="radio" class="form-check-input" checked required>
-            <label class="form-check-label" for="creative-design"><strong>Creative Design</strong> 
-            <p><small><em>Includes Logo design and 3D mockups</em> </small> </p>
-        
-        </label>
-            
+            <label class="form-check-label" for="creative-design"><strong>Creative Design</strong>
+              <p><small><em>Includes Logo design and 3D mockups</em> </small> </p>
+
+            </label>
+
           </div>
 
         </div>
-        
+
         <div class="card container py-2 mb-2 bg-light">
           <div class="form-check">
             <input id="photography-videography" name="chooseService" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="photography-videography"><strong>Photography & Videography</strong> 
-          <p><small><em>Includes Weddings, Kitchen parties etc...</em> </small> </p>
-        
-        </label>
+            <label class="form-check-label" for="photography-videography"><strong>Photography & Videography</strong>
+              <p><small><em>Includes Weddings, Kitchen parties etc...</em> </small> </p>
+
+            </label>
           </div>
 
         </div>
         <div class="card container py-2 mb-2 bg-light">
           <div class="form-check">
             <input id="Social-media-management" name="chooseService" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="Social-media-management"><strong>Social Media Management</strong> </label>
+            <label class="form-check-label" for="Social-media-management"><strong>Social Media Management</strong>
+            </label>
           </div>
         </div>
         <div class="card container py-2 mb-2 bg-light">
           <div class="form-check">
             <input id="Printing-and-supply" name="chooseService" type="radio" class="form-check-input" required>
-            <label class="form-check-label" for="Printing-and-supply"><strong>Printing and Supply</strong> 
-          <p><small><em>Includes Pens, Banners, Pop up banners, Backdrops, T-shirts, Diaries, Calendars, Billboards</em> </small> </p>
-        
-        </label>
+            <label class="form-check-label" for="Printing-and-supply"><strong>Printing and Supply</strong>
+              <p><small><em>Includes Pens, Banners, Pop up banners, Backdrops, T-shirts, Diaries, Calendars,
+                    Billboards</em> </small> </p>
+
+            </label>
           </div>
 
         </div>
-        
+
       </div>
       <div class="my-3 hidden" id="page-2">
-      <h3>Provide a brief description of what you need.</h3>
+        <h3>Provide a brief description of what you need.</h3>
 
         <div class="card container py-2 mb-2 bg-light mt-4">
-          <textarea name="" id="" rows="3" style="width:100%">Type here...</textarea>
+          <textarea name="description" id="description" rows="3" style="width:100%">Type here...</textarea>
 
         </div>
-        
+
       </div>
 
       <div class="my-3 hidden" id="page-3">
@@ -274,71 +130,99 @@
           </div>
           <div class="col col-sm-12 col-md-12">
             <div class="form-floating mb-3">
-              <input type="tel" class="form-control" id="phone-number" name="phoneNumber" placeholder="Full names">
+              <input type="tel" class="form-control" id="email" name="email" placeholder="Full names">
               <label for="phone-number">Email</label>
             </div>
           </div>
-          
-          
+
+
         </div>
-        
+
       </div>
       <p style="text-align: right;">
         <button class="btn btn--outline-secondary btn-lg" id="previous-button">Previous</button>
         <button class="btn btn-primary btn-lg" id="next-button">Next</button>
+
       </p>
-     </form>
-
-      
+    </form>
 
 
-     
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script type="text/javascript" src="../assets/js/jquery.js"></script>
-    <script>
-      window.currentPage = 0; // keeps track of the page user is on
-      
-      $("#next-button").click(function(event){ //  controls forward form navigation
-        event.preventDefault();
-        if(currentPage == 0){
-          // show page 2
-          // hide page 1
-          $("#page-1").addClass("hidden");
-          $("#page-2").removeClass("hidden");
-          window.currentPage = 1;
-        } else if(currentPage == 1){
-          // hide page 2 show page 3
-          $("#page-2").addClass("hidden");
-          $("#page-3").removeClass("hidden");
-          $("#next-button").html("Submit")
-          window.currentPage = 2;
 
-        } else if(currentPage == 2){
-          // submit form
-        }
-      });
 
-      $("#previous-button").click(function(event){ //  controls backward form navigation
-        event.preventDefault();
-        if(currentPage == 0){
-          // do nothing
-        } else if(currentPage == 1){
-          // show page 1
-          // hide page 2
-          $("#page-1").removeClass("hidden");
-          $("#page-2").addClass("hidden");
-          window.currentPage = 0;
-        } else if(currentPage === 2){
-          // show page 2 hide page 3
-          $("#page-2").removeClass("hidden");
-          $("#page-3").addClass("hidden");
-          $("#next-button").html("Next")
-          window.currentPage = 1;
-        }
-      });
-      
-    </script>
-  </body>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script type="text/javascript" src="../assets/js/jquery.js"></script>
+  <script>
+    window.currentPage = 0; // keeps track of the page user is on
+    window.postUrl = "http://127.0.0.1:8000/appointment/"
+    $("#next-button").click(function (event) { //  controls forward form navigation
+      event.preventDefault();
+      if (currentPage == 0) {
+        // show page 2
+        // hide page 1
+        $("#page-1").addClass("hidden");
+        $("#page-2").removeClass("hidden");
+
+
+        //$("#next-button").removeClass("hidden");
+        window.currentPage = 1;
+      } else if (currentPage == 1) {
+        // hide page 2 show page 3
+        $("#page-2").addClass("hidden");
+        $("#page-3").removeClass("hidden");
+        $("#next-button").html("Submit")
+        //$("#next-button").addClass("hidden");
+        //$("#submit").removeClass("hidden");
+        window.currentPage = 2;
+
+      } else if (currentPage == 2) {
+        // submit form
+        var data_dirty = $("#appointment-form").serializeArray()
+        var data = {}
+        data_dirty.forEach(element => {
+          data[element.name] = element.value
+        });
+        data.credentials = 'include'
+        console.log("Submiting from")
+        let xhr = new XMLHttpRequest();
+        $('#next-button').prop('disabled', true);
+        xhr.onload = function () {
+          if (xhr.status != 200) { // analyze HTTP status of the response
+            alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+          } else { // show the result
+            alert(`Appointment Sent Successfully, Check your email`); // response is the server response
+          }
+        };
+
+        xhr.open("POST", window.postUrl)
+        xhr.send(JSON.stringify(data))
+      }
+    });
+
+    $("#previous-button").click(function (event) { //  controls backward form navigation
+      event.preventDefault();
+      if (currentPage == 0) {
+        // do nothing
+      } else if (currentPage == 1) {
+        // show page 1
+        // hide page 2
+        $("#page-1").removeClass("hidden");
+        $("#page-2").addClass("hidden");
+        window.currentPage = 0;
+      } else if (currentPage === 2) {
+        // show page 2 hide page 3
+        $("#page-2").removeClass("hidden");
+        $("#page-3").addClass("hidden");
+        $("#next-button").html("Next")
+        window.currentPage = 1;
+      }
+    });
+
+  </script>
+</body>
+
 </html>
